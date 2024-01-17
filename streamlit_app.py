@@ -12,7 +12,7 @@ st.title("Arxiv Dashboard")
 df = pd.read_csv("reduced.csv")
 titles = df.iloc[:,4]
 
-# @st.cache_data
+@st.cache_data
 def operations():
 # if st.toggle("Stuff"): 
     # if st.toggle("Paper Search"):
