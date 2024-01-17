@@ -8,9 +8,9 @@ import pickle
 import plotly.express as px
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.title("Arxiv Dashboard")
-
-if st.toggle("Stuff"):
-    df = pd.read_csv("reduced.csv")
+df = pd.read_csv("reduced.csv")
+titles = df.iloc[:,4]
+if st.toggle("Stuff"): 
     # if st.toggle("Paper Search"):
     #     st.write("Search Papers")
     #     # search for papers by title
@@ -157,17 +157,17 @@ top_ten = cos_sim.argsort()[0][-10:]
 # reverse the order of top_ten
 top_ten = top_ten[::-1]
 top_sim = cos_sim[0][top_ten]
-#st.write(top_ten)
+# st.write(top_ten)
 # st.write(matching_index)
 # st.write(top_ten)
 # st.write(len(df))
-# find the title of the paper with the highest cosine similarity
+find the title of the paper with the highest cosine similarity
 # matching_title = df.iloc[matching_index,4]
-# top_ten_titles = df.iloc[top_ten,4]
-# # change the index of top_ten_titles to the similarity scores
-# top_ten_titles.index = top_sim
-# top_ten_titles.index.name = "Similarity Score"
-#st.write(matching_title)
+top_ten_titles = titles.iloc[top_ten,4]
+# change the index of top_ten_titles to the similarity scores
+top_ten_titles.index = top_sim
+top_ten_titles.index.name = "Similarity Score"
+st.write(matching_title)
 st.write("Top Ten Results")
 st.write(matching_index)
 
