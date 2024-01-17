@@ -9,7 +9,7 @@ import plotly.express as px
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.title("Arxiv Dashboard")
 
-if st.toggle("Stuff")
+if st.toggle("Stuff"):
     df = pd.read_csv("reduced.csv")
     # if st.toggle("Paper Search"):
     #     st.write("Search Papers")
