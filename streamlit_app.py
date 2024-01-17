@@ -6,11 +6,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 import scipy.sparse
 import pickle
 import plotly.express as px
+
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.title("Arxiv Dashboard")
 df = pd.read_csv("reduced.csv")
 titles = df.iloc[:,4]
-if st.toggle("Stuff"): 
+
+@st.cache_data
+def operations():
+# if st.toggle("Stuff"): 
     # if st.toggle("Paper Search"):
     #     st.write("Search Papers")
     #     # search for papers by title
@@ -135,6 +139,9 @@ if st.toggle("Stuff"):
     #     trainer.fit(df.iloc[:,11]) # need to save trainer as a pickle file
     #     temp = trainer.transform(df.iloc[:,11])# transformed papers #save as scipy sparsecsr matrix
     #     scipy.sparse.save_npz("/tmp/tester.npz", temp)
+
+operations()
+
 tester = scipy.sparse.load_npz("tester.npz")
 #TFIDF = pd.DataFrame(tester.toarray(), columns=trainer.get_feature_names_out())
 # search for papers by title
