@@ -167,8 +167,8 @@ top_ten_titles = titles.iloc[top_ten]
 # change the index of top_ten_titles to the similarity scores
 top_ten_titles.index = top_sim
 top_ten_titles.index.name = "Similarity Score"
-st.write(matching_title)
+# st.write(matching_title)
 st.write("Top Ten Results")
-st.write(matching_index)
+st.write(top_ten_titles)
 
     
